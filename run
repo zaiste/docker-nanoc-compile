@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+if [ "$1" == "-h" ] ; then
+    echo "Usage: `basename $0` [-h]"
+    echo "\tit looks in /data/$1 for nanoc app"
+    exit 0
+fi
+
+echo "Preparing to compile the content from '/data/$1'"
+(cd /data/$1 && bundle && bundle exec nanoc compile)
